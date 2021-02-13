@@ -27,14 +27,27 @@ class ProductItem extends HTMLElement {
         cartElem.innerHTML = num_items + 1;
         alert('Added to Cart!');
         button.innerHTML = 'Remove from Cart';
+        localStorage.setItem(this.getAttribute('id'),this.getAttribute('id'));
+        localStorage.setItem('cart-count',num_items + 1);
       }
       else {
         cartElem.innerHTML = num_items - 1;
         button.innerHTML = 'Add to Cart';
+        localStorage.removeItem(this.getAttribute('id'));
+        localStorage.setItem('cart-count',num_items - 1);
       }
 
     };
-    button.innerHTML = 'Add to Cart';
+
+    if(localStorage.getItem(this.getAttribute('id')) != null) {
+      button.innerHTML = 'Remove from Cart';
+      let x = document.getElementById('cart-count');
+      x.innerHTML = localStorage.getItem('cart-count') != null ? localStorage.getItem('cart-count') : '0';
+    }
+    else {
+      button.innerHTML = 'Add to Cart';
+    }
+    
 
     const style = document.createElement('style');
     style.textContent =
