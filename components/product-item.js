@@ -42,7 +42,7 @@ class ProductItem extends HTMLElement {
     if(localStorage.getItem(this.getAttribute('id')) != null) {
       button.innerHTML = 'Remove from Cart';
       let x = document.getElementById('cart-count');
-      x.innerHTML = localStorage.getItem('cart-count') != null ? localStorage.getItem('cart-count') : '0';
+      x.innerHTML = localStorage.getItem('cart-count');
     }
     else {
       button.innerHTML = 'Add to Cart';
