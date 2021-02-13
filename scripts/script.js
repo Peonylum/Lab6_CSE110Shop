@@ -14,8 +14,8 @@ window.addEventListener('DOMContentLoaded', () => {
 
         prod_JSON.forEach(o => {
           prod_list.innerHTML += `<product-item image ='${o.image}' title='${o.title}' price='${o.price}' id='${o.id}'/>`
-        }) 
-      }); 
+        })
+      });
   }
   else {
     prod_JSON = eval(localStorage.getItem('JSONObj'));
